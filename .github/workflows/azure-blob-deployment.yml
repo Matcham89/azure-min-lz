@@ -43,7 +43,7 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-            az storage blob upload-batch --account-name azureblobtescm  --auth-mode key -d '$web' -s .
+            az storage blob upload-batch --account-name azureblobtescm  --auth-mode key -d 'blob-test-cm' -s .
 
 
     # - name: Deploy to Blob Storage
