@@ -44,14 +44,7 @@ jobs:
       with:
         inlineScript: |
             az storage blob upload-batch --account-name azureblobtescm  --auth-mode key -d '$web' -s .
-    - name: Purge CDN endpoint
-      uses: azure/CLI@v1
-      with:
-        inlineScript: |
-           az cdn endpoint purge --content-paths  "/*" \
-           --profile-name "cdn-matcham" \
-           --name "cdn-matcham-endpoint-bdfqgca0azhud6bb.z01.azurefd.net" \
-           --resource-group "azure-dev-ops-test"
+
 
     # - name: Deploy to Blob Storage
     #   uses: Azure/blob-upload-action@v1
