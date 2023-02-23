@@ -37,6 +37,7 @@ jobs:
         client-id: "c1dc515b-43c4-4d19-9984-8771ba0e1873"
         tenant-id: "379f390a-2769-4d25-8acd-6ffb425accd7"
         subscription-id: "abf38db5-7b20-44b1-bd72-4d06fabaabe1"
+        allow-no-subscriptions: true
 
     - name: Upload to blob storage
       uses: azure/CLI@v1
