@@ -8,22 +8,22 @@ jobs:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+    # - name: Checkout code
+    #   uses: actions/checkout@v2
 
-    - name: Set up QEMU
-      uses: docker/setup-qemu-action@v2
+    # - name: Set up QEMU
+    #   uses: docker/setup-qemu-action@v2
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v2
+    # - name: Set up Docker Buildx
+    #   uses: docker/setup-buildx-action@v2
     
-    - name: Set shared variables
-      run: |
-        echo "SHA_IMAGE_TAG=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+    # - name: Set shared variables
+    #   run: |
+    #     echo "SHA_IMAGE_TAG=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
 
-    - name: Check shared variables
-      run: |
-        echo ${{ env.SHA_IMAGE_TAG }}
+    # - name: Check shared variables
+    #   run: |
+    #     echo ${{ env.SHA_IMAGE_TAG }}
 
       # - name: Build and push
       #   uses: docker/build-push-action@v4
