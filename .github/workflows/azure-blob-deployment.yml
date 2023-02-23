@@ -6,6 +6,9 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -22,7 +25,7 @@ jobs:
 
     - name: Check shared variables
       run: |
-        echo env.SHA_IMAGE_TAG
+        echo ${{ env.SHA_IMAGE_TAG }}
 
       # - name: Build and push
       #   uses: docker/build-push-action@v4
