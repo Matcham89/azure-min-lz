@@ -40,9 +40,7 @@ jobs:
         allow-no-subscriptions: true
 
     - name: Upload to blob storage
-      uses: azure/CLI@v1
-      with:
-        inlineScript: |
+      run: |
           az storage container create \
           -n cjmtestcontainer \
           --fail-on-exist \
