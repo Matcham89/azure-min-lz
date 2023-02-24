@@ -1,7 +1,5 @@
 on:
-  push:
-    branches:
-      - main
+  workflow-dispatch:
 
 jobs:
   build-and-deploy:
@@ -33,15 +31,26 @@ jobs:
 
     - uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     
+  - name: Create subscription
+    run: |
+      az extension add --name subscription \ 
+      az account create --enrollment-account-name --offer-type {MS-AZR-0017P, MS-AZR-0148P}
 
-    - name: Upload to blob storage
+
+      
+
+    - name: Create blob container
       run: |
           az storage container create \
           -n cjmtestcontainer \
           --fail-on-exist \
-          --account-name azureblobtescm
+          --account-name azureblobtescm \
+        # --public-access {blob, container, off}
+        # --blob-endpoint
 
 
     # - name: Deploy to Blob Storage
