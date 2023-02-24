@@ -8,28 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
-    # - name: Checkout code
-    #   uses: actions/checkout@v2
 
-    # - name: Set up QEMU
-    #   uses: docker/setup-qemu-action@v2
-
-    # - name: Set up Docker Buildx
-    #   uses: docker/setup-buildx-action@v2
-    
-    # - name: Set shared variables
-    #   run: |
-    #     echo "SHA_IMAGE_TAG=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
-
-    # - name: Check shared variables
-    #   run: |
-    #     echo ${{ env.SHA_IMAGE_TAG }}
-
-      # - name: Build and push
-      #   uses: docker/build-push-action@v4
-      #   with:
-      #     push: true
-      #     tags: user/app:${{ env.SHA_IMAGE_TAG }}
 
     - uses: azure/login@v1
       with:
@@ -37,12 +16,10 @@ jobs:
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     
-  - name: Create subscription
-    run: |
-      az extension add --name subscription \ 
-      az account create --enrollment-account-name --offer-type {MS-AZR-0017P, MS-AZR-0148P}
-
-
+    # - name: Create subscription
+    #   run: |
+    #     az extension add --name subscription \ 
+    #     az account create --enrollment-account-name --offer-type {MS-AZR-0017P, MS-AZR-0148P}
       
 
     - name: Create blob container
@@ -55,10 +32,3 @@ jobs:
         # --blob-endpoint
 
 
-    # - name: Deploy to Blob Storage
-    #   uses: Azure/blob-upload-action@v1
-    #   with:
-    #     storageAccountName: '<your-storage-account-name>'
-    #     containerName: '<your-container-name>'
-    #     sourcePath: '<your-source-path>'
-    #     destinationPath: '<your-destination-path>'
