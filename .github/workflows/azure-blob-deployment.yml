@@ -31,10 +31,6 @@ jobs:
       #     push: true
       #     tags: user/app:${{ env.SHA_IMAGE_TAG }}
 
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
