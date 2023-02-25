@@ -18,22 +18,11 @@ jobs:
     #   run: |
     #     az extension add --name subscription \ 
     #     az account create --enrollment-account-name --offer-type {MS-AZR-0017P, MS-AZR-0148P}
-    - name: Get Time
-      id: time
-      uses: nanzm/get-time-action@v1.1
-      with:
-        timeZone: 8
-        format: 'YYYY-MM-DD'
-    - name: Usage
-      env:
-        TIME: "${{ steps.time.outputs.time }}"
-      run: |
-        echo $TIME >> $GITHUB_ENV
 
     - name: Create blob container
       run: |
           az storage container create \
-          -n test${{ env.DATE }} \
+          -n test${{ github.run_id }} \
           --fail-on-exist \
           --account-name azureblobtescm \
         # --public-access {blob, container, off}
