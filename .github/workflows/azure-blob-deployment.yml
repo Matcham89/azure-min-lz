@@ -1,7 +1,8 @@
 name: trigger-azure
 on:
-  branches:
-    - main
+  push:
+    branches:
+      - main
 jobs:
   call-azure-pipeline:
     runs-on: ubuntu-latest
