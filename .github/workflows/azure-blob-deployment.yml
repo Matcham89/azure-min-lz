@@ -1,6 +1,5 @@
-name: container-deployment
+name: trigger-azure
 on:
-  workflow_dispatch:
     branches:
       - main
 jobs:
