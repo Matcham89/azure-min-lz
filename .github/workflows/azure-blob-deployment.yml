@@ -1,5 +1,4 @@
 name: container-deployment
-name: container-deployment
 trigger:
 - main
 jobs:
