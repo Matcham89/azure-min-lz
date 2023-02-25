@@ -20,7 +20,7 @@ jobs:
     #     az account create --enrollment-account-name --offer-type {MS-AZR-0017P, MS-AZR-0148P}
     - name: Set variables
       run: |
-        echo "TAG=$(date +%s)${{ github.run_attempt }}" >> $GITHUB_OUTPUT
+        echo "DATE=$(date +%s)" >> $GITHUB_ENV
 
     - name: Create blob container
       run: |
