@@ -21,11 +21,12 @@ jobs:
     - name: Set variables
       run: |
         echo "DATE=$(date +%s)" >> $GITHUB_ENV
+        echo ${{ env.DATE }}
 
     - name: Create blob container
       run: |
           az storage container create \
-          -n test${{ env.TAG }} \
+          -n test${{ env.DATE }} \
           --fail-on-exist \
           --account-name azureblobtescm \
         # --public-access {blob, container, off}
