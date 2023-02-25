@@ -20,7 +20,7 @@ jobs:
     #     az account create --enrollment-account-name --offer-type {MS-AZR-0017P, MS-AZR-0148P}
     - name: Set variables
       run: |
-        echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+        echo "DATE=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
         echo ${{ env.DATE }}
 
     - name: Create blob container
