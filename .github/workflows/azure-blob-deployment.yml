@@ -11,7 +11,7 @@ jobs:
       uses: Azure/pipelines@v1
       with:
         azure-devops-project-url: https://dev.azure.com/cjmatcham/azure-dev-ops-blob
-        azure-pipeline-name: 'My Pipeline'
+        azure-pipeline-name: 'azure-pipelines'
         azure-devops-token: ${{ secrets.AZURE_DEVOPS_TOKEN }}
 
   # build-and-deploy:
