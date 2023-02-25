@@ -13,13 +13,6 @@ jobs:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-    
-    - name: Set shared variables
-      run: |
-        echo "SHA_IMAGE_TAG=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
-    - name: Check shared variables
-      run: |
-        echo ${{ github.run_id }}
 
     # - name: Create subscription
     #   run: |
@@ -29,7 +22,7 @@ jobs:
     - name: Create blob container
       run: |
           az storage container create \
-          -n test${{ github.run_id }} \
+          -n test$(date +%s)${{ github.run_attempt }} \
           --fail-on-exist \
           --account-name azureblobtescm \
         # --public-access {blob, container, off}
