@@ -18,11 +18,14 @@ jobs:
     #   run: |
     #     az extension add --name subscription \ 
     #     az account create --enrollment-account-name --offer-type {MS-AZR-0017P, MS-AZR-0148P}
+    - name: Set variables
+      run: |
+        echo "TAG=$(date +%s)${{ github.run_attempt }}" >> $GITHUB_OUTPUT
 
     - name: Create blob container
       run: |
           az storage container create \
-          -n test$(date +%s)${{ github.run_attempt }} \
+          -n test${{ env.TAG }} \
           --fail-on-exist \
           --account-name azureblobtescm \
         # --public-access {blob, container, off}
