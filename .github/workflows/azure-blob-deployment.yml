@@ -19,7 +19,7 @@ jobs:
         echo "SHA_IMAGE_TAG=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
     - name: Check shared variables
       run: |
-        echo ${{ env.SHA_IMAGE_TAG }}
+        echo ${{ github.run_id }}
 
     # - name: Create subscription
     #   run: |
@@ -29,7 +29,7 @@ jobs:
     - name: Create blob container
       run: |
           az storage container create \
-          -n test${{ env.SHA_IMAGE_TAG }} \
+          -n test${{ github.run_id }} \
           --fail-on-exist \
           --account-name azureblobtescm \
         # --public-access {blob, container, off}
