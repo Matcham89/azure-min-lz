@@ -44,7 +44,7 @@ steps:
       az storage container list \
       --account-name $(Build.DefinitionName)$(Build.BuildId)
 
-- task: AzureFileCopy@5
+- task: AzureCLI@2
   displayName: 'Upload To Container'
   inputs:
     azureSubscription: 'Free Trial(abf38db5-7b20-44b1-bd72-4d06fabaabe1)'
