@@ -16,11 +16,11 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-    az storage account create \
-    --name actest \
-    --resource-group azure-dev-ops-test \
-    --sku Standard_RAGRS \
-    --kind StorageV2
+      az storage account create \
+      --name ac$(System.PlanId) \
+      --resource-group azure-dev-ops-test \
+      --sku Standard_RAGRS \
+      --kind StorageV2
 
 
 - task: AzureCLI@2
@@ -33,4 +33,4 @@ steps:
       az storage container create \
       -n test$(System.JobId) \
       --fail-on-exist \
-      --account-name actest
+      --account-name ac$(System.PlanId)
