@@ -45,9 +45,10 @@ steps:
       --account-name $(Build.DefinitionName)$(Build.BuildId)
 
 - task: AzureFileCopy@5
+  displayName: 'Upload To Container'
   inputs:
-    SourcePath: 'index.html'
     azureSubscription: 'Free Trial(abf38db5-7b20-44b1-bd72-4d06fabaabe1)'
-    Destination: 'AzureBlob'
-    storage: '$(Build.DefinitionName)$(Build.BuildId)'
-    ContainerName: 'container$(Build.BuildId)'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      azcopy copy 'index.html' 'https://mystorageaccount.blob.core.windows.net/$(Build.DefinitionName)$(Build.BuildId)/index.html'
