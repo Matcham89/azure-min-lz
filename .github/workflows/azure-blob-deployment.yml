@@ -1,6 +1,6 @@
 name: trigger-azure
 on:
-  workflow-dispatch:
+  workflow_dispatch:
 
 jobs:
   call-azure-pipeline:
