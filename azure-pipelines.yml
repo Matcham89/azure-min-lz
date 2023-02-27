@@ -35,7 +35,7 @@ steps:
       --public-access blob
 
 - task: AzureCLI@2
-  displayName: 'Create Storage Account'
+  displayName: 'List Containers'
   inputs:
     azureSubscription: 'Free Trial(abf38db5-7b20-44b1-bd72-4d06fabaabe1)'
     scriptType: 'bash'
