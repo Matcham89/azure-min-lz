@@ -17,6 +17,6 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       az storage container create \
-            -n test$(Build.BuildNumber) \
+            -n test$(System.JobId) \
             --fail-on-exist \
             --account-name pipelinetestcm
