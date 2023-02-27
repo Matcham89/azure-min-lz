@@ -3,11 +3,9 @@ name: azureblobpoc
 trigger: none
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
 
 steps:
-- script: ls
-  displayName: 'Run a one-line script'
 
 - task: AzureCLI@2
   displayName: 'Create Storage Account'
@@ -34,15 +32,12 @@ steps:
       -n container$(Build.BuildId) \
       --fail-on-exist \
       --account-name $(Build.DefinitionName)$(Build.BuildId) \
-      azcopy copy 'index.html' \
-      'https://mystorageaccount.blob.core.windows.net/container$(Build.BuildId)'
 
-# - task: AzureCLI@2
-#   displayName: 'Upload File To Container'
-#   inputs:
-#     azureSubscription: 'Free Trial(abf38db5-7b20-44b1-bd72-4d06fabaabe1)'
-#     scriptType: 'bash'
-#     scriptLocation: 'inlineScript'
-#     inlineScript: |
-#       azcopy copy 'index.html' \
-#       'https://mystorageaccount.blob.core.windows.net/container$(Build.BuildId)'
+
+- task: AzureFileCopy@5
+  inputs:
+    SourcePath: 'index.html'
+    azureSubscription: 'Free Trial(abf38db5-7b20-44b1-bd72-4d06fabaabe1)'
+    Destination: 'AzureBlob'
+    storage: '$(Build.DefinitionName)$(Build.BuildId)'
+    ContainerName: 'container$(Build.BuildId)'
