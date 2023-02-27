@@ -19,4 +19,4 @@ steps:
       az storage container create \
             -n test$(Build.BuildNumber) \
             --fail-on-exist \
-            --account-name azureblobtescm
+            --account-name pipelinetestcm
