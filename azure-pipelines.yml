@@ -1,5 +1,5 @@
 
-name: container-deployment
+name: azureblobpoc
 trigger: none
 
 pool:
@@ -17,7 +17,7 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       az storage account create \
-      --name sa$(Build.BuildId) \
+      --name $(Build.DefinitionName)$(Build.BuildId) \
       --resource-group azure-dev-ops-test \
       --sku Standard_RAGRS \
       --kind StorageV2
@@ -33,4 +33,4 @@ steps:
       az storage container create \
       -n container$(Build.BuildId) \
       --fail-on-exist \
-      --account-name sa$(Build.BuildId)
+      --account-name $(Build.DefinitionName)$(Build.BuildId)
