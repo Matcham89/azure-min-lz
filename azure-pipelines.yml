@@ -37,12 +37,12 @@ steps:
       azcopy copy 'index.html' \
       'https://mystorageaccount.blob.core.windows.net/container$(Build.BuildId)'
 
-- task: AzureCLI@2
-  displayName: 'Upload File To Container'
-  inputs:
-    azureSubscription: 'Free Trial(abf38db5-7b20-44b1-bd72-4d06fabaabe1)'
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      azcopy copy 'index.html' \
-      'https://mystorageaccount.blob.core.windows.net/container$(Build.BuildId)'
+# - task: AzureCLI@2
+#   displayName: 'Upload File To Container'
+#   inputs:
+#     azureSubscription: 'Free Trial(abf38db5-7b20-44b1-bd72-4d06fabaabe1)'
+#     scriptType: 'bash'
+#     scriptLocation: 'inlineScript'
+#     inlineScript: |
+#       azcopy copy 'index.html' \
+#       'https://mystorageaccount.blob.core.windows.net/container$(Build.BuildId)'
