@@ -6,39 +6,39 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
+- script: ls
   displayName: 'Run a one-line script'
 
-- task: AzureCLI@2
-  displayName: 'Create Storage Account'
-  inputs:
-    azureSubscription: 'Free Trial(abf38db5-7b20-44b1-bd72-4d06fabaabe1)'
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      az storage account create \
-      --name $(Build.DefinitionName)$(Build.BuildId) \
-      --resource-group azure-dev-ops-test \
-      --sku Standard_RAGRS \
-      --kind StorageV2
+# - task: AzureCLI@2
+#   displayName: 'Create Storage Account'
+#   inputs:
+#     azureSubscription: 'Free Trial(abf38db5-7b20-44b1-bd72-4d06fabaabe1)'
+#     scriptType: 'bash'
+#     scriptLocation: 'inlineScript'
+#     inlineScript: |
+#       az storage account create \
+#       --name $(Build.DefinitionName)$(Build.BuildId) \
+#       --resource-group azure-dev-ops-test \
+#       --sku Standard_RAGRS \
+#       --kind StorageV2
 
 
-- task: AzureCLI@2
-  displayName: 'Create Blob Container'
-  inputs:
-    azureSubscription: 'Free Trial(abf38db5-7b20-44b1-bd72-4d06fabaabe1)'
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      az storage container create \
-      -n container$(Build.BuildId) \
-      --fail-on-exist \
-      --account-name $(Build.DefinitionName)$(Build.BuildId)
+# - task: AzureCLI@2
+#   displayName: 'Create Blob Container'
+#   inputs:
+#     azureSubscription: 'Free Trial(abf38db5-7b20-44b1-bd72-4d06fabaabe1)'
+#     scriptType: 'bash'
+#     scriptLocation: 'inlineScript'
+#     inlineScript: |
+#       az storage container create \
+#       -n container$(Build.BuildId) \
+#       --fail-on-exist \
+#       --account-name $(Build.DefinitionName)$(Build.BuildId)
 
-- task: AzureFileCopy@5
-  inputs:
-    SourcePath: 'index.html'
-    azureSubscription: 'Free Trial(abf38db5-7b20-44b1-bd72-4d06fabaabe1)'
-    Destination: 'AzureBlob'
-    storage: '$(Build.DefinitionName)$(Build.BuildId)'
-    ContainerName: 'container$(Build.BuildId)'
+# - task: AzureFileCopy@5
+#   inputs:
+#     SourcePath: 'index.html'
+#     azureSubscription: 'Free Trial(abf38db5-7b20-44b1-bd72-4d06fabaabe1)'
+#     Destination: 'AzureBlob'
+#     storage: '$(Build.DefinitionName)$(Build.BuildId)'
+#     ContainerName: 'container$(Build.BuildId)'
