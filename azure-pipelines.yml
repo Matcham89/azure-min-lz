@@ -33,7 +33,9 @@ steps:
       az storage container create \
       -n container$(Build.BuildId) \
       --fail-on-exist \
-      --account-name $(Build.DefinitionName)$(Build.BuildId)
+      --account-name $(Build.DefinitionName)$(Build.BuildId) \
+      azcopy copy 'index.html' \
+      'https://mystorageaccount.blob.core.windows.net/container$(Build.BuildId)'
 
 - task: AzureCLI@2
   displayName: 'Upload File To Container'
