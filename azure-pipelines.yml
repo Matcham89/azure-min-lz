@@ -32,6 +32,7 @@ steps:
       -n container$(Build.BuildId) \
       --fail-on-exist \
       --account-name $(Build.DefinitionName)$(Build.BuildId) \
+      --public-access blob
 
 
 - task: AzureFileCopy@5
