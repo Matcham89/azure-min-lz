@@ -10,7 +10,7 @@ jobs:
       uses: Azure/pipelines@v1
       with:
         azure-devops-project-url: https://dev.azure.com/cjmatcham/azure-dev-ops-blob
-        azure-pipeline-name: 'Matcham89.azure-dev-ops'
+        azure-pipeline-name: 'azureblobpoc'
         azure-devops-token: ${{ secrets.AZURE_DEVOPS_TOKEN }}
 
   # build-and-deploy:
