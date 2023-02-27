@@ -17,7 +17,7 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
     az storage account create \
-    --name ac$(System.DefinitionId) \
+    --name ac$(System.PlanId) \
     --resource-group azure-dev-ops-test \
     --sku Standard_RAGRS \
     --kind StorageV2
@@ -33,4 +33,4 @@ steps:
       az storage container create \
       -n test$(System.JobId) \
       --fail-on-exist \
-      --account-name ac$(System.DefinitionId)
+      --account-name ac$(System.PlanId)
