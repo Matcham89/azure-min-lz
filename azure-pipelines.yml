@@ -43,7 +43,7 @@ steps:
       az storage container list \
       --account-name $(Build.DefinitionName)$(Build.BuildId)
 
-- task: AzureFileCopy@4
+- task: AzureFileCopy@3
   displayName: 'Upload File To Container'
   inputs:
     SourcePath: 'index.html'
