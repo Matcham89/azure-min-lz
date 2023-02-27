@@ -44,17 +44,10 @@ steps:
       az storage container list \
       --account-name $(Build.DefinitionName)$(Build.BuildId)
 
-- task: AzureFileCopy@5
+- task: AzureFileCopy@3
   inputs:
     SourcePath: 'index.html'
     azureSubscription: 'Free Trial(abf38db5-7b20-44b1-bd72-4d06fabaabe1)'
     Destination: 'AzureBlob'
     storage: '$(Build.DefinitionName)$(Build.BuildId)'
     ContainerName: 'container$(Build.BuildId)'
-- task: AzureFileCopy@5
-  inputs:
-    SourcePath: 'index.html'
-    azureSubscription: 'Free Trial(abf38db5-7b20-44b1-bd72-4d06fabaabe1)'
-    Destination: 'AzureBlob'
-    storage: 'azureblobpoc78'
-    ContainerName: 'ivuk'
