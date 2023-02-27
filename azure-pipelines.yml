@@ -16,6 +16,6 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       az storage container create \
-      -n test${{ github.run_id }} \
+      -n test \
       --fail-on-exist \
       --account-name azureblobtescm
