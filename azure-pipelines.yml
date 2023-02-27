@@ -20,7 +20,6 @@ steps:
       --sku Standard_RAGRS \
       --kind StorageV2
 
-
 - task: AzureCLI@2
   displayName: 'Create Blob Container'
   inputs:
@@ -44,7 +43,8 @@ steps:
       az storage container list \
       --account-name $(Build.DefinitionName)$(Build.BuildId)
 
-- task: AzureFileCopy@3
+- task: AzureFileCopy@4
+  displayName: 'Upload File To Container'
   inputs:
     SourcePath: 'index.html'
     azureSubscription: 'Free Trial(abf38db5-7b20-44b1-bd72-4d06fabaabe1)'
