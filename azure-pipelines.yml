@@ -23,7 +23,7 @@ steps:
 - task: AzureCLI@2
   displayName: 'Create Blob Container'
   inputs:
-    azureSubscription: 'Free Trial(abf38db5-7b20-44b1-bd72-4d06fabaabe1)'
+    azureSubscription: 'Pay-As-You-Go(df454dbc-c3b7-41b6-b9dc-90d90bf156f9)'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
