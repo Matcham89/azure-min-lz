@@ -9,7 +9,6 @@ trigger: none
       vmImage: 'Ubuntu-latest'
     environment: 'development'
 
-steps:
 - task: AzureCLI@2
   inputs:
     azureSubscription: 'ramsay-poc-dev(abf38db5-7b20-44b1-bd72-4d06fabaabe1)'
