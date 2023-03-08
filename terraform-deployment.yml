@@ -1,13 +1,13 @@
 name: terraform-deployment-dev
 trigger: none
 
-- stage: deploy
-  jobs:
-  - deployment: DeployWeb
-    displayName: deploy to dev
-    pool:
-      vmImage: 'Ubuntu-latest'
-    environment: 'development'
+jobs:
+- deployment: devdeploy
+  displayName: Deploy to dev
+  environment: 
+   name: development
+    steps:
+      - script: echo "Hello world"
 
 # - task: AzureCLI@2
 #   inputs:
