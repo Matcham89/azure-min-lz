@@ -1,7 +1,3 @@
-
-
-terraform plan -var-file=dev.tfvars
-
 name: terraform-deployment-dev
 trigger: none
 
