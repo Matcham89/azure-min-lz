@@ -1,8 +1,28 @@
-name: azureblobpoc
+
+
+terraform plan -var-file=dev.tfvars
+
+name: terraform-deployment-dev
 trigger: none
 
 pool:
   vmImage: ubuntu-latest
 
+environment: 'development'
+
 steps:
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'ramsay-poc-dev(abf38db5-7b20-44b1-bd72-4d06fabaabe1)'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      cd terraform/iac
+      terraform init \
+      -backend-config="resource_group_name=ramsay-cicd-rg" \
+      -backend-config="storage_account_name=ramsaytfsa" \
+      -backend-config="container_name=ramsaytfstate" \
+      -backend-config="key=dev.terraform.tfstate"
+      terraform plan -var-file=dev.tfvars
+
 
