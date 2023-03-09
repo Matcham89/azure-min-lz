@@ -32,7 +32,7 @@ resource "azurerm_network_interface" "v_network_int" {
 #
 
 resource "azurerm_linux_virtual_machine" "linux_vm_1" {
-  name                = "ramsay-machine"
+  name                = "ramsay-machine-1"
   location            = local.resource_location
   resource_group_name = var.resource_group
   size                = "Standard_F1"
@@ -61,7 +61,7 @@ resource "azurerm_linux_virtual_machine" "linux_vm_1" {
 #
 
 resource "azurerm_linux_virtual_machine" "linux_vm_2" {
-  name                = "ramsay-machine"
+  name                = "ramsay-machine-2"
   location            = local.resource_location
   resource_group_name = var.resource_group
   size                = "Standard_F1"
