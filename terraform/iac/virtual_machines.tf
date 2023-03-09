@@ -37,6 +37,8 @@ resource "azurerm_linux_virtual_machine" "linux_vm_1" {
   resource_group_name = var.resource_group
   size                = "Standard_F1"
   admin_username      = "adminuser"
+  admin_password                  = azurerm_key_vault_secret.linux_vm_1_secret.value
+  disable_password_authentication = false
   network_interface_ids = [
     azurerm_network_interface.v_network_int.id,
   ]
@@ -64,6 +66,8 @@ resource "azurerm_linux_virtual_machine" "linux_vm_2" {
   resource_group_name = var.resource_group
   size                = "Standard_F1"
   admin_username      = "adminuser"
+  admin_password                  = azurerm_key_vault_secret.linux_vm_1_secret.value
+  disable_password_authentication = false
   network_interface_ids = [
     azurerm_network_interface.v_network_int.id,
   ]
