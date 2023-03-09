@@ -1,0 +1,7 @@
+terraform init \
+    -backend-config="resource_group_name=ramsay-cicd-rg" \
+    -backend-config="storage_account_name=ramsaytfsa" \
+    -backend-config="container_name=ramsaytfstate" \
+    -backend-config="key=dev.terraform.tfstate"
+
+terraform plan -var-file=dev.tfvars
