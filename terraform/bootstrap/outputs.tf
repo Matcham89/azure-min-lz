@@ -11,5 +11,5 @@ output "prod_resource_group" {
 }
 
 output "resource_location" {
-value = var.resource_location
+  value = var.resource_location
 }

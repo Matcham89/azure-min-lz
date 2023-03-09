@@ -1,5 +1,5 @@
 data "terraform_remote_state" "bootstrap" {
-  backend = "azurerm" 
+  backend = "azurerm"
   config = {
     resource_group_name  = "ramsay-cicd-rg"
     storage_account_name = "ramsaytfsa"
@@ -9,5 +9,5 @@ data "terraform_remote_state" "bootstrap" {
 }
 
 locals {
-  resource_location      = data.terraform_remote_state.bootstrap.outputs.resource_location
+  resource_location = data.terraform_remote_state.bootstrap.outputs.resource_location
 }

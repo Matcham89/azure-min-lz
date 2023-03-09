@@ -7,11 +7,11 @@ provider "azurerm" {
   }
 }
 
- terraform { 
-  required_providers { 
-      azurerm = { 
-          source = "hashicorp/azurerm"
-          version = ">= 2.96.0" 
-      } 
-  } 
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = ">= 2.96.0"
+    }
   }
+}

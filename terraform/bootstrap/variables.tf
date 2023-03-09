@@ -1,4 +1,4 @@
 variable "resource_location" {
-  type = string
+  type    = string
   default = "uksouth"
 }
