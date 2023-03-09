@@ -1,2 +1,2 @@
-resource_group = "ramsay-dev-poc"
+resource_group = "ramsay-dev"
 

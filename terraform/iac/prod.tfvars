@@ -1,2 +1,2 @@
-resource_group = "ramsay-prod-poc"
+resource_group = "ramsay-prod"
 

@@ -1,2 +1,2 @@
-resource_group = "ramsay-test-poc"
+resource_group = "ramsay-test"
 
