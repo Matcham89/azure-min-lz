@@ -36,12 +36,12 @@ resource "azurerm_key_vault" "key_vault" {
 }
 
 resource "azurerm_key_vault_secret" "linux_vm_1_secret" {
-  name         = "linux_vm_1"
+  name         = "linux-vm-1"
   value        = "Password123!"
   key_vault_id = azurerm_key_vault.key_vault.id
 }
 resource "azurerm_key_vault_secret" "linux_vm_2_secret" {
-  name         = "linux_vm_2"
+  name         = "linux-vm-2"
   value        = "Password123!"
   key_vault_id = azurerm_key_vault.key_vault.id
 }
