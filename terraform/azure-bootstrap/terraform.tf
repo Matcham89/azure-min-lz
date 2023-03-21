@@ -14,18 +14,15 @@ terraform {
 }
 
 provider "azurerm" {
+  features {}
+}
+
+provider "azurerm" {
   alias           = "connectivity"
-  subscription_id = ""
   features {}
 }
 
 provider "azurerm" {
   alias           = "management"
-  subscription_id = ""
-  features {}
-}
-
-
-provider "azurerm" {
   features {}
 }

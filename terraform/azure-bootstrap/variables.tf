@@ -1,24 +1,25 @@
 # Use variables to customize the deployment
-
 variable "root_id" {
   type    = string
-  default = "ramsayroot"
 }
-
 variable "root_name" {
   type    = string
-  default = "ramsay poc"
 }
-
 variable "tenant_id" {
   type    = string
-  default = ""
 }
-variable "lz_1" {
+variable "landingzone_1_sub" {
   type = string
-  default = "" 
 }
-variable "lz_2" {
+variable "landingzone_2_sub" {
   type = string
-  default = "" 
+}
+variable "connectivity_sub" {
+  type = string
+}
+variable "management_sub" {
+  type = string
+}
+variable "default_location" {
+  type = string
 }

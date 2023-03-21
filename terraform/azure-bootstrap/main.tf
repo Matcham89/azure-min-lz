@@ -5,12 +5,6 @@
 
 data "azurerm_client_config" "core" {}
 
-data "azurerm_client_config" "connectivity" {
-  provider = azurerm.connectivity
-}
-data "azurerm_client_config" "management" {
-  provider = azurerm.management
-}
 # Declare the Azure landing zones Terraform module
 # and provide a base configuration.
 
@@ -28,19 +22,19 @@ module "enterprise_scale" {
   root_id        = var.root_id
   root_name      = var.root_name
   library_path   = "${path.root}/lib"
-  default_location        = "uksouth"
+  default_location        = var.default_location
 
   deploy_management_resources = true
-  subscription_id_management  = data.azurerm_client_config.management.subscription_id
+  subscription_id_management  = var.management_sub
 
   deploy_connectivity_resources = true
-  subscription_id_connectivity  = data.azurerm_client_config.connectivity.subscription_id
+  subscription_id_connectivity  = var.connectivity_sub
 
   custom_landing_zones = {
     "${var.root_id}-lz-1" = {
       display_name               = "${upper(var.root_id)} lz-1"
       parent_management_group_id = "${var.root_id}-landing-zones"
-      subscription_ids           = [var.lz_1]
+      subscription_ids           = [var.landingzone_1_sub]
       archetype_config = {
         archetype_id   = "default_empty"
         parameters = {}
@@ -50,7 +44,7 @@ module "enterprise_scale" {
     "${var.root_id}-lz-2" = {
       display_name               = "${upper(var.root_id)} lz-2"
       parent_management_group_id = "${var.root_id}-landing-zones"
-      subscription_ids           = [var.lz_2]
+      subscription_ids           = [var.landingzone_2_sub]
       archetype_config = {
         archetype_id = "default_empty"
         parameters = {}
