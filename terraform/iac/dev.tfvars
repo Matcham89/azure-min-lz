@@ -1,2 +1,2 @@
-resource_group = "ramsay-dev"
-
+resource_location = "uksouth"
+env               = "dev"
